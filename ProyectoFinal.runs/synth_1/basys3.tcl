@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.runs/synth_1/basys3.tcl"
+  variable script "/home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/synth_1/basys3.tcl"
   variable category "vivado_synth"
 }
 
@@ -57,45 +57,46 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.cache/wt [current_project]
-set_property parent.project_path /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.xpr [current_project]
+set_property webtalk.parent_dir /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.cache/wt [current_project]
+set_property parent.project_path /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:basys3:part0:1.2 [current_project]
-set_property ip_output_repo /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.cache/ip [current_project]
+set_property ip_output_repo /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/adder.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/alu.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/clk_divider.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condcheck.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condlogic.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/controller.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/datapath.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decode.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decoder.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/dmem.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/extend.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenr.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenrc.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/hazard.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/imem.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux2.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux3.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/regfile.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/top.v
-  /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/basys3.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/adder.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/alu.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/arm.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/clk_divider.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/condcheck.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/condlogic.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/controller.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/datapath.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/decode.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/decoder.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/dmem.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/extend.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/flopenr.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/flopenrc.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/flopr.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/floprc.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/hazard.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/imem.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/mux2.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/mux3.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/regfile.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/top.v
+  /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/sources_1/new/basys3.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -106,12 +107,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc
-set_property used_in_implementation false [get_files /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc]
+read_xdc /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/constrs_1/new/basys3.xdc
+set_property used_in_implementation false [get_files /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/constrs_1/new/basys3.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/utils_1/imports/synth_1/top.dcp
+read_checkpoint -auto_incremental -incremental /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/utils_1/imports/synth_1/top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

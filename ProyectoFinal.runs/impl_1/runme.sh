@@ -21,7 +21,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/impl_1'
+HD_PWD='/home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -2,7 +2,8 @@ module top (
 	clk,
 	reset,
 	in,//
-	out
+	out,
+	out_control
 );
 	input wire clk;//
 	input wire reset;
@@ -11,8 +12,8 @@ module top (
 	 wire [31:0] DataAdr;
 	 wire MemWrite;
 	 wire [31:0] PC;//
-	 wire [3:0] enable;//
-	output wire [27:0] out;
+	output wire [6:0] out;
+	output wire [3:0] out_control;
 	wire [31:0] InstrF;
 	wire [31:0] ReadData;
 	
@@ -49,7 +50,7 @@ module top (
 	
     decoder dec(
         .out(out),
-        .enable(enable),
+        .out_control(out_control),
         .in(in),
         .PC(PC)
     );

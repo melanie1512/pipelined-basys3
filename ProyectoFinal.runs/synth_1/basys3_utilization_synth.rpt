@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Sat Nov 30 17:30:55 2024
-| Host         : archlinux running 64-bit unknown
+| Date         : Sat Nov 30 23:50:23 2024
+| Host         : melanie-OMEN-Laptop-15-ek0xxx running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file basys3_utilization_synth.rpt -pb basys3_utilization_synth.pb
 | Design       : basys3
 | Device       : xc7a35tcpg236-1
@@ -28,18 +28,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+------------+-----------+-------+
-|        Site Type        | Used | Fixed | Prohibited | Available | Util% |
-+-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |   42 |     0 |          0 |     20800 |  0.20 |
-|   LUT as Logic          |   42 |     0 |          0 |     20800 |  0.20 |
-|   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |   41 |     0 |          0 |     41600 |  0.10 |
-|   Register as Flip Flop |   41 |     0 |          0 |     41600 |  0.10 |
-|   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
-| F7 Muxes                |    0 |     0 |          0 |     16300 |  0.00 |
-| F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
-+-------------------------+------+-------+------------+-----------+-------+
++----------------------------+------+-------+------------+-----------+-------+
+|          Site Type         | Used | Fixed | Prohibited | Available | Util% |
++----------------------------+------+-------+------------+-----------+-------+
+| Slice LUTs*                |  122 |     0 |          0 |     20800 |  0.59 |
+|   LUT as Logic             |  114 |     0 |          0 |     20800 |  0.55 |
+|   LUT as Memory            |    8 |     0 |          0 |      9600 |  0.08 |
+|     LUT as Distributed RAM |    8 |     0 |            |           |       |
+|     LUT as Shift Register  |    0 |     0 |            |           |       |
+| Slice Registers            |   82 |     0 |          0 |     41600 |  0.20 |
+|   Register as Flip Flop    |   82 |     0 |          0 |     41600 |  0.20 |
+|   Register as Latch        |    0 |     0 |          0 |     41600 |  0.00 |
+| F7 Muxes                   |    0 |     0 |          0 |     16300 |  0.00 |
+| F8 Muxes                   |    0 |     0 |          0 |      8150 |  0.00 |
++----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 Warning! LUT value is adjusted to account for LUT combining.
 Warning! For any ECO changes, please run place_design if there are unplaced instances
@@ -58,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 41    |          Yes |           - |        Reset |
+| 82    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -93,7 +95,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   31 |     0 |          0 |       106 | 29.25 |
+| Bonded IOB                  |   14 |     0 |          0 |       106 | 13.21 |
 | Bonded IPADs                |    0 |     0 |          0 |        10 |  0.00 |
 | Bonded OPADs                |    0 |     0 |          0 |         4 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         5 |  0.00 |
@@ -118,7 +120,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |          0 |        32 |  3.13 |
+| BUFGCTRL   |    2 |     0 |          0 |        32 |  6.25 |
 | BUFIO      |    0 |     0 |          0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |          0 |         5 |  0.00 |
@@ -152,14 +154,19 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |   41 |        Flop & Latch |
-| OBUF     |   28 |                  IO |
-| LUT1     |   28 |                 LUT |
-| LUT5     |   21 |                 LUT |
-| CARRY4   |    4 |          CarryLogic |
-| LUT3     |    3 |                 LUT |
+| FDCE     |   82 |        Flop & Latch |
+| LUT5     |   31 |                 LUT |
+| LUT1     |   29 |                 LUT |
+| LUT6     |   28 |                 LUT |
+| LUT4     |   23 |                 LUT |
+| RAMD32   |   12 |  Distributed Memory |
+| LUT3     |   12 |                 LUT |
+| OBUF     |   11 |                  IO |
+| LUT2     |    8 |                 LUT |
+| CARRY4   |    6 |          CarryLogic |
+| RAMS32   |    4 |  Distributed Memory |
 | IBUF     |    3 |                  IO |
-| BUFG     |    1 |               Clock |
+| BUFG     |    2 |               Clock |
 +----------+------+---------------------+
 
 

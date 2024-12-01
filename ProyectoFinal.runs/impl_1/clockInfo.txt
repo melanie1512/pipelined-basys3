@@ -1,6 +1,6 @@
 -------------------------------------
 | Tool Version : Vivado v.2024.1
-| Date         : Sat Nov 30 19:46:07 2024
+| Date         : Sat Nov 30 23:50:54 2024
 | Host         : melanie-OMEN-Laptop-15-ek0xxx
 | Design       : design_1
 | Device       : xc7a35t-cpg236-1--

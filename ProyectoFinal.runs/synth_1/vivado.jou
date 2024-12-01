@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Sat Nov 30 17:30:28 2024
-# Process ID: 47582
-# Current directory: /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.runs/synth_1
+# Start of session at: Sat Nov 30 23:49:44 2024
+# Process ID: 156365
+# Current directory: /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/synth_1
 # Command line: vivado -log basys3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source basys3.tcl
-# Log file: /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.runs/synth_1/basys3.vds
-# Journal file: /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.runs/synth_1/vivado.jou
-# Running On        :archlinux
-# Platform          :unknown
-# Operating System  :unknown
-# Processor Detail  :AMD Ryzen 5 7530U with Radeon Graphics
-# CPU Frequency     :400.000 MHz
+# Log file: /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/synth_1/basys3.vds
+# Journal file: /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/synth_1/vivado.jou
+# Running On        :melanie-OMEN-Laptop-15-ek0xxx
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency     :3586.128 MHz
 # CPU Physical cores:6
 # CPU Logical cores :12
-# Host memory       :16137 MB
-# Swap memory       :4294 MB
-# Total Virtual     :20432 MB
-# Available Virtual :13503 MB
+# Host memory       :12300 MB
+# Swap memory       :2147 MB
+# Total Virtual     :14447 MB
+# Available Virtual :7461 MB
 #-----------------------------------------------------------
 source basys3.tcl -notrace

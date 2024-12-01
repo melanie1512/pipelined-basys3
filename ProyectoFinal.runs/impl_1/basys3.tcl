@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "/home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/impl_1/basys3.tcl"
+  variable script "/home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/impl_1/basys3.tcl"
   variable category "vivado_impl"
 }
 
@@ -105,6 +105,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 3
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 6  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
@@ -113,15 +114,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/melanie/Desktop/pipelined-arm/ProyectoFinal.cache/wt [current_project]
-  set_property parent.project_path /home/melanie/Desktop/pipelined-arm/ProyectoFinal.xpr [current_project]
-  set_property ip_output_repo /home/melanie/Desktop/pipelined-arm/ProyectoFinal.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.cache/wt [current_project]
+  set_property parent.project_path /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.xpr [current_project]
+  set_property ip_output_repo /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/synth_1/basys3.dcp
+  add_files -quiet /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.runs/synth_1/basys3.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/melanie/Desktop/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc
+  read_xdc /home/melanie/Desktop/pipelined-basys3/ProyectoFinal.srcs/constrs_1/new/basys3.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

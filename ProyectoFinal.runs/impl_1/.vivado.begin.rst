@@ -1,50 +1,35 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="14917" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="36762" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="15864" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="52612" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="16575" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="73470" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="20237" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="96089" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="20912" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="115668" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="22006" HostCore="12" HostMemory="15759692">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="136309" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="25320" HostCore="12" HostMemory="15759692">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="33657" HostCore="12" HostMemory="15759692">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="jorughen" Host="archlinux" Pid="47796" HostCore="12" HostMemory="15759692">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="79499" HostCore="12" HostMemory="12011980">
+    <Process Command="vivado" Owner="melanie" Host="melanie-OMEN-Laptop-15-ek0xxx" Pid="156522" HostCore="12" HostMemory="12011980">
     </Process>
 </ProcessHandle>

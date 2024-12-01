@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Sat Nov 30 19:46:23 2024
+| Date         : Sat Nov 30 23:51:10 2024
 | Host         : melanie-OMEN-Laptop-15-ek0xxx running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_clock_utilization -file basys3_clock_utilization_routed.rpt
 | Design       : basys3
@@ -21,7 +21,8 @@ Table of Contents
 5. Clock Regions: Key Resource Utilization
 6. Clock Regions : Global Clock Summary
 7. Device Cell Placement Summary for Global Clock g0
-8. Clock Region Cell Placement per Global Clock: Region X1Y0
+8. Device Cell Placement Summary for Global Clock g1
+9. Clock Region Cell Placement per Global Clock: Region X1Y0
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -29,7 +30,7 @@ Table of Contents
 +----------+------+-----------+-----+--------------+--------+
 | Type     | Used | Available | LOC | Clock Region | Pblock |
 +----------+------+-----------+-----+--------------+--------+
-| BUFGCTRL |    1 |        32 |   0 |            0 |      0 |
+| BUFGCTRL |    2 |        32 |   0 |            0 |      0 |
 | BUFH     |    0 |        72 |   0 |            0 |      0 |
 | BUFIO    |    0 |        20 |   0 |            0 |      0 |
 | BUFMR    |    0 |        10 |   0 |            0 |      0 |
@@ -42,11 +43,12 @@ Table of Contents
 2. Global Clock Resources
 -------------------------
 
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+---------------+
-| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock       | Driver Pin           | Net           |
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+---------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |           1 |               0 |       10.000 | sys_clk_pin | clk_IBUF_BUFG_inst/O | clk_IBUF_BUFG |
-+-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+---------------+
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+-------------------+
+| Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock       | Driver Pin           | Net               |
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+-------------------+
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 1 |          57 |               1 |              |             | q_reg[29]_i_2/O      | q_reg[29]_i_2_n_0 |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 1 |           1 |               0 |       10.000 | sys_clk_pin | clk_IBUF_BUFG_inst/O | clk_IBUF_BUFG     |
++-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+-------------+----------------------+-------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 
@@ -54,11 +56,12 @@ Table of Contents
 3. Global Clock Source Details
 ------------------------------
 
-+-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
-| Source Id | Global Id | Driver Type/Pin | Constraint | Site      | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin      | Net      |
-+-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
-| src0      | g0        | IBUF/O          | IOB_X1Y26  | IOB_X1Y26 | X1Y0         |           1 |               0 |              10.000 | sys_clk_pin  | clk_IBUF_inst/O | clk_IBUF |
-+-----------+-----------+-----------------+------------+-----------+--------------+-------------+-----------------+---------------------+--------------+-----------------+----------+
++-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+------------------------------------------------+------------------------------------------------+
+| Source Id | Global Id | Driver Type/Pin | Constraint | Site         | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                                     | Net                                            |
++-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+------------------------------------------------+------------------------------------------------+
+| src0      | g0        | FDCE/Q          | None       | SLICE_X54Y41 | X1Y0         |           1 |               0 |                     |              | dut/clk_div/dff_gen_label[26].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[26].dff_inst/Q_reg_0 |
+| src1      | g1        | IBUF/O          | IOB_X1Y26  | IOB_X1Y26    | X1Y0         |           1 |               0 |              10.000 | sys_clk_pin  | clk_IBUF_inst/O                                | clk_IBUF                                       |
++-----------+-----------+-----------------+------------+--------------+--------------+-------------+-----------------+---------------------+--------------+------------------------------------------------+------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 
@@ -69,33 +72,32 @@ Table of Contents
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------+------------------------------------------------+
 | Local Id | Driver Type/Pin | Constraint | Site/BEL         | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                     | Net                                            |
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------+------------------------------------------------+
-| 0        | FDCE/Q          | None       | SLICE_X65Y25/AFF | X1Y0         |          14 |               1 |              |       | dut/clk_div/dff_gen_label[26].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[26].dff_inst/led     |
-| 1        | FDCE/Q          | None       | SLICE_X63Y28/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[10].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[10].dff_inst/Q_reg_0 |
-| 2        | FDCE/Q          | None       | SLICE_X64Y28/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[11].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[11].dff_inst/Q_reg_0 |
-| 3        | FDCE/Q          | None       | SLICE_X62Y28/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[12].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[12].dff_inst/Q_reg_0 |
-| 4        | FDCE/Q          | None       | SLICE_X61Y28/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[13].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[13].dff_inst/Q_reg_0 |
-| 5        | FDCE/Q          | None       | SLICE_X60Y28/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[14].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[14].dff_inst/Q_reg_0 |
-| 6        | FDCE/Q          | None       | SLICE_X60Y27/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[15].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[15].dff_inst/Q_reg_0 |
-| 7        | FDCE/Q          | None       | SLICE_X61Y27/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[16].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[16].dff_inst/Q_reg_0 |
-| 8        | FDCE/Q          | None       | SLICE_X62Y27/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[17].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[17].dff_inst/Q_reg_0 |
-| 9        | FDCE/Q          | None       | SLICE_X63Y24/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[18].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[18].dff_inst/Q_reg_0 |
-| 10       | FDCE/Q          | None       | SLICE_X63Y23/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[19].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[19].dff_inst/Q_reg_0 |
-| 11       | FDCE/Q          | None       | SLICE_X62Y25/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[1].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[1].dff_inst/Q        |
-| 12       | FDCE/Q          | None       | SLICE_X60Y23/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[20].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[20].dff_inst/Q_reg_0 |
-| 13       | FDCE/Q          | None       | SLICE_X62Y23/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[21].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[21].dff_inst/Q_reg_0 |
-| 14       | FDCE/Q          | None       | SLICE_X62Y24/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[22].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[22].dff_inst/Q_reg_0 |
-| 15       | FDCE/Q          | None       | SLICE_X63Y25/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[23].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[23].dff_inst/Q_reg_0 |
-| 16       | FDCE/Q          | None       | SLICE_X64Y26/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[24].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[24].dff_inst/Q_reg_0 |
-| 17       | FDCE/Q          | None       | SLICE_X65Y26/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[25].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[25].dff_inst/Q_reg_0 |
-| 18       | FDCE/Q          | None       | SLICE_X61Y25/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[2].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[2].dff_inst/Q_reg_0  |
-| 19       | FDCE/Q          | None       | SLICE_X60Y25/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[3].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[3].dff_inst/Q_reg_0  |
-| 20       | FDCE/Q          | None       | SLICE_X60Y24/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[4].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[4].dff_inst/Q_reg_0  |
-| 21       | FDCE/Q          | None       | SLICE_X61Y24/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[5].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[5].dff_inst/Q_reg_0  |
-| 22       | FDCE/Q          | None       | SLICE_X61Y23/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[6].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[6].dff_inst/Q_reg_0  |
-| 23       | FDCE/Q          | None       | SLICE_X61Y26/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[7].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[7].dff_inst/Q_reg_0  |
-| 24       | FDCE/Q          | None       | SLICE_X63Y26/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[8].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[8].dff_inst/Q_reg_0  |
-| 25       | FDCE/Q          | None       | SLICE_X63Y27/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[9].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[9].dff_inst/Q_reg_0  |
-| 26       | FDCE/Q          | None       | SLICE_X62Y26/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_inst0/Q_reg/Q                  | dut/clk_div/dff_inst0/Q_reg_0                  |
+| 0        | FDCE/Q          | None       | SLICE_X54Y35/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[10].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[10].dff_inst/Q_reg_0 |
+| 1        | FDCE/Q          | None       | SLICE_X56Y35/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[11].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[11].dff_inst/Q_reg_0 |
+| 2        | FDCE/Q          | None       | SLICE_X57Y35/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[12].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[12].dff_inst/Q_reg_0 |
+| 3        | FDCE/Q          | None       | SLICE_X57Y36/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[13].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[13].dff_inst/Q_reg_0 |
+| 4        | FDCE/Q          | None       | SLICE_X56Y36/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[14].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[14].dff_inst/Q_reg_0 |
+| 5        | FDCE/Q          | None       | SLICE_X56Y37/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[15].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[15].dff_inst/Q_reg_0 |
+| 6        | FDCE/Q          | None       | SLICE_X57Y37/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[16].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[16].dff_inst/Q_reg_0 |
+| 7        | FDCE/Q          | None       | SLICE_X55Y37/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[17].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[17].dff_inst/Q_reg_0 |
+| 8        | FDCE/Q          | None       | SLICE_X55Y36/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[18].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[18].dff_inst/Q_reg_0 |
+| 9        | FDCE/Q          | None       | SLICE_X54Y36/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[19].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[19].dff_inst/Q_reg_0 |
+| 10       | FDCE/Q          | None       | SLICE_X56Y33/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[1].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[1].dff_inst/Q_reg_0  |
+| 11       | FDCE/Q          | None       | SLICE_X54Y37/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[20].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[20].dff_inst/Q_reg_0 |
+| 12       | FDCE/Q          | None       | SLICE_X56Y38/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[21].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[21].dff_inst/Q_reg_0 |
+| 13       | FDCE/Q          | None       | SLICE_X55Y38/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[22].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[22].dff_inst/Q_reg_0 |
+| 14       | FDCE/Q          | None       | SLICE_X54Y38/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[23].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[23].dff_inst/Q_reg_0 |
+| 15       | FDCE/Q          | None       | SLICE_X54Y39/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[24].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[24].dff_inst/Q_reg_0 |
+| 16       | FDCE/Q          | None       | SLICE_X54Y40/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[25].dff_inst/Q_reg/Q | dut/clk_div/dff_gen_label[25].dff_inst/Q_reg_0 |
+| 17       | FDCE/Q          | None       | SLICE_X56Y34/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[2].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[2].dff_inst/Q_reg_0  |
+| 18       | FDCE/Q          | None       | SLICE_X57Y34/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[3].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[3].dff_inst/Q_reg_0  |
+| 19       | FDCE/Q          | None       | SLICE_X55Y34/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[4].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[4].dff_inst/Q_reg_0  |
+| 20       | FDCE/Q          | None       | SLICE_X54Y34/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[5].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[5].dff_inst/Q_reg_0  |
+| 21       | FDCE/Q          | None       | SLICE_X54Y33/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[6].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[6].dff_inst/Q_reg_0  |
+| 22       | FDCE/Q          | None       | SLICE_X55Y33/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[7].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[7].dff_inst/Q_reg_0  |
+| 23       | FDCE/Q          | None       | SLICE_X55Y32/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[8].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[8].dff_inst/Q_reg_0  |
+| 24       | FDCE/Q          | None       | SLICE_X55Y35/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_gen_label[9].dff_inst/Q_reg/Q  | dut/clk_div/dff_gen_label[9].dff_inst/Q_reg_0  |
+| 25       | FDCE/Q          | None       | SLICE_X57Y33/AFF | X1Y0         |           1 |               1 |              |       | dut/clk_div/dff_inst0/Q_reg/Q                  | dut/clk_div/dff_inst0/Q_reg_0                  |
 +----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------+------------------------------------------------+
 * Local Clocks in this context represents only clocks driven by non-global buffers
 ** Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
@@ -111,7 +113,7 @@ Table of Contents
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y0              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   41 |  1500 |   28 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   82 |  1500 |   36 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1500 |    0 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1800 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
@@ -136,10 +138,33 @@ All Modules
 7. Device Cell Placement Summary for Global Clock g0
 ----------------------------------------------------
 
++-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net               |
++-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------+
+| g0        | BUFG/O          | n/a               |       |             |               |          56 |        0 |              0 |        0 | q_reg[29]_i_2_n_0 |
++-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-----+-----------------------+
+|    | X0 | X1  | HORIZONTAL PROG DELAY |
++----+----+-----+-----------------------+
+| Y2 |  0 |   0 |                     - |
+| Y1 |  0 |   0 |                     - |
+| Y0 |  0 |  56 |                     0 |
++----+----+-----+-----------------------+
+
+
+8. Device Cell Placement Summary for Global Clock g1
+----------------------------------------------------
+
 +-----------+-----------------+-------------------+-------------+-------------+---------------+-------------+----------+----------------+----------+---------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock       | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net           |
 +-----------+-----------------+-------------------+-------------+-------------+---------------+-------------+----------+----------------+----------+---------------+
-| g0        | BUFG/O          | n/a               | sys_clk_pin |      10.000 | {0.000 5.000} |           1 |        0 |              0 |        0 | clk_IBUF_BUFG |
+| g1        | BUFG/O          | n/a               | sys_clk_pin |      10.000 | {0.000 5.000} |           1 |        0 |              0 |        0 | clk_IBUF_BUFG |
 +-----------+-----------------+-------------------+-------------+-------------+---------------+-------------+----------+----------------+----------+---------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -156,14 +181,15 @@ All Modules
 +----+----+----+-----------------------+
 
 
-8. Clock Region Cell Placement per Global Clock: Region X1Y0
+9. Clock Region Cell Placement per Global Clock: Region X1Y0
 ------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net           |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------+
-| g0        | n/a   | BUFG/O          | None       |           1 |               0 |  1 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk_IBUF_BUFG |
-+-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+---------------+
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net               |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------+
+| g0        | n/a   | BUFG/O          | None       |          55 |               1 | 55 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | q_reg[29]_i_2_n_0 |
+| g1        | n/a   | BUFG/O          | None       |           1 |               0 |  1 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | clk_IBUF_BUFG     |
++-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -171,14 +197,22 @@ All Modules
 
 
 # Location of BUFG Primitives 
-set_property LOC BUFGCTRL_X0Y0 [get_cells clk_IBUF_BUFG_inst]
+set_property LOC BUFGCTRL_X0Y0 [get_cells q_reg[29]_i_2]
+set_property LOC BUFGCTRL_X0Y1 [get_cells clk_IBUF_BUFG_inst]
 
 # Location of IO Primitives which is load of clock spine
 
 # Location of clock ports
 set_property LOC IOB_X1Y26 [get_ports clk]
 
-# Clock net "clk_IBUF_BUFG" driven by instance "clk_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y0"
+# Clock net "q_reg[29]_i_2_n_0" driven by instance "q_reg[29]_i_2" located at site "BUFGCTRL_X0Y0"
+#startgroup
+create_pblock {CLKAG_q_reg[29]_i_2_n_0}
+add_cells_to_pblock [get_pblocks  {CLKAG_q_reg[29]_i_2_n_0}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="q_reg[29]_i_2_n_0"}]]]
+resize_pblock [get_pblocks {CLKAG_q_reg[29]_i_2_n_0}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+#endgroup
+
+# Clock net "clk_IBUF_BUFG" driven by instance "clk_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y1"
 #startgroup
 create_pblock {CLKAG_clk_IBUF_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_clk_IBUF_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clk_IBUF_BUFG"}]]]

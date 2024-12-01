@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
-| Date         : Sat Nov 30 19:46:22 2024
+| Date         : Sat Nov 30 23:51:08 2024
 | Host         : melanie-OMEN-Laptop-15-ek0xxx running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_drc -file basys3_drc_routed.rpt -pb basys3_drc_routed.pb -rpx basys3_drc_routed.rpx
 | Design       : basys3

@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: Gabriele Felaco
@@ -22,12 +21,12 @@
 
 module decoder(
     out,
-    enable,
+    out_control,
     in,
     PC
     );
-    output reg [27:0] out;  // Ahora es de 24 bits
-    output reg [3:0] enable; // Controla cuál de los 4 segmentos está activo
+    output reg [6:0] out;  // Ahora es de 24 bits
+    output reg [3:0] out_control;
     input wire in;               // Si está prendido, activamos la lógica de PC
     input wire [31:0] PC;          // Los 4 bits de PC que determinan qué se mostrará
 
@@ -56,17 +55,13 @@ module decoder(
         if (in) begin
             // Si 'in' está prendido, decodificamos el valor de 'PC' en los 4 segmentos de 7 bits
             out[6:0]   = segs[PC[3:0]];    // Primer segmento de 7 bits (primer parte de 'PC')
-            out[13:7]  = segs[PC[7:4]];    // Segundo segmento de 7 bits
-            out[20:14] = segs[PC[11:8]];    // Tercer segmento de 7 bits
-            out[27:21] = segs[PC[15:12]];    // Cuarto segmento de 7 bits
+            out_control = 4'b0000;
 
             // Lógica para habilitar un solo segmento (AN0 a AN3), en este caso AN0 siempre está activado
-            enable = 4'b0000;  // Activo los display AN0, AN1,An2,An3
         end
         else begin
             // Si 'in' no está prendido, no se activa nada
-            out = 24'b000000000000000000000000; // Apaga todos los segmentos
-            enable = 4'b1111;  // Desactiva todos los segmentos
+            out = 24'b1111111; // Apaga todos los segmentos
         end
     end
 endmodule
