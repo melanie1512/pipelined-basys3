@@ -1,0 +1,454 @@
+
+*** Running vivado
+    with args -log basys3.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source basys3.tcl
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Sat Nov 30 17:30:28 2024
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source basys3.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1433.176 ; gain = 0.023 ; free physical = 5595 ; free virtual = 12569
+Command: read_checkpoint -auto_incremental -incremental /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top basys3 -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Device 21-9227] Part: xc7a35tcpg236-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 47665
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2180.961 ; gain = 420.746 ; free physical = 4561 ; free virtual = 11534
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'PCSrcE', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:61]
+INFO: [Synth 8-11241] undeclared symbol 'PCSrcD', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:62]
+INFO: [Synth 8-11241] undeclared symbol 'PCSrcM', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:63]
+INFO: [Synth 8-11241] undeclared symbol 'MemtoRegE', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:66]
+INFO: [Synth 8-11241] undeclared symbol 'NoWE', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/controller.v:119]
+INFO: [Synth 8-11241] undeclared symbol 'Now', assumed default net type 'wire' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/datapath.v:304]
+INFO: [Synth 8-6157] synthesizing module 'basys3' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/basys3.v:2]
+INFO: [Synth 8-6157] synthesizing module 'top' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clk_divider' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/clk_divider.v:17]
+INFO: [Synth 8-6157] synthesizing module 'dff' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/clk_divider.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'dff' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/clk_divider.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'clk_divider' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/clk_divider.v:17]
+INFO: [Synth 8-6157] synthesizing module 'arm' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:1]
+INFO: [Synth 8-6157] synthesizing module 'controller' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/controller.v:1]
+INFO: [Synth 8-6157] synthesizing module 'decode' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decode.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'decode' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decode.v:1]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+	Parameter WIDTH bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+	Parameter WIDTH bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'condlogic' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condlogic.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenrc.v:1]
+	Parameter WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenrc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'condcheck' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condcheck.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'condcheck' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condcheck.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'condlogic' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/condlogic.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+	Parameter WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/controller.v:1]
+WARNING: [Synth 8-7071] port 'ShiftD' of module 'controller' is unconnected for instance 'c' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:47]
+WARNING: [Synth 8-7023] instance 'c' of module 'controller' has 26 connections declared, but only 25 given [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:47]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/datapath.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux2.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenr.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenr.v:1]
+INFO: [Synth 8-6157] synthesizing module 'adder' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/adder.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adder' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/adder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized0' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenrc.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized0' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopenrc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux3.v:2]
+	Parameter WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux3.v:2]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/regfile.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/regfile.v:1]
+INFO: [Synth 8-6157] synthesizing module 'extend' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/extend.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'extend' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/extend.v:1]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/floprc.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux3__parameterized0' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux3.v:2]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3__parameterized0' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/mux3.v:2]
+INFO: [Synth 8-6157] synthesizing module 'alu' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/alu.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/alu.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/alu.v:1]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/flopr.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/datapath.v:1]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/hazard.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/hazard.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'arm' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/arm.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imem' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/imem.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'imem' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/imem.v:1]
+INFO: [Synth 8-6157] synthesizing module 'dmem' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/dmem.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'dmem' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/dmem.v:1]
+INFO: [Synth 8-6157] synthesizing module 'decoder' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decoder.v:23]
+WARNING: [Synth 8-567] referenced signal 'segs' should be on the sensitivity list [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decoder.v:55]
+INFO: [Synth 8-6155] done synthesizing module 'decoder' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/decoder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'basys3' (0#1) [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/basys3.v:2]
+WARNING: [Synth 8-3848] Net Now in module/entity datapath does not have driver. [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/datapath.v:304]
+WARNING: [Synth 8-7129] Port PC[31] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[30] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[29] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[28] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[27] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[26] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[25] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[24] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[23] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[22] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[21] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[20] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[19] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[18] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[17] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[16] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[29] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[28] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[27] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[26] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[25] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[24] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[23] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[22] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[21] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[20] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[19] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[18] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[17] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[16] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[15] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[14] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[13] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[12] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[11] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[10] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[1] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[0] in module dmem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[1] in module imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[0] in module imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module hazard is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module hazard is either unconnected or has no load
+WARNING: [Synth 8-7129] Port NoW in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Long in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Signed in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port FlagsPrima[3] in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port FlagsPrima[2] in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port FlagsPrima[0] in module alu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we3[1] in module regfile is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RegSrcD[1] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RegSrcD[0] in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port MemtoRegE in module datapath is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[19] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[18] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[17] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[16] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[11] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[10] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[9] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[8] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[7] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[6] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[5] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[4] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[3] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[2] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[1] in module controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port InstrD[0] in module controller is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2268.898 ; gain = 508.684 ; free physical = 4470 ; free virtual = 11445
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2286.711 ; gain = 526.496 ; free physical = 4458 ; free virtual = 11432
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2286.711 ; gain = 526.496 ; free physical = 4458 ; free virtual = 11432
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2286.711 ; gain = 0.000 ; free physical = 4458 ; free virtual = 11432
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc]
+Finished Parsing XDC File [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/constrs_1/new/basys3.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/basys3_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/basys3_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2494.461 ; gain = 0.000 ; free physical = 4420 ; free virtual = 11394
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2494.461 ; gain = 0.000 ; free physical = 4420 ; free virtual = 11394
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2494.461 ; gain = 734.246 ; free physical = 4419 ; free virtual = 11393
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4419 ; free virtual = 11393
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4419 ; free virtual = 11393
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'sum_reg' [/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.srcs/sources_1/new/alu.v:14]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11393
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   33 Bit       Adders := 1     
+	   4 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     33 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
+	   3 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 9     
+	               16 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 6     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 27    
++---Muxes : 
+	   2 Input   33 Bit        Muxes := 6     
+	   2 Input   32 Bit        Muxes := 15    
+	   4 Input   32 Bit        Muxes := 1     
+	   6 Input   32 Bit        Muxes := 1     
+	   2 Input   28 Bit        Muxes := 1     
+	   6 Input   16 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1     
+	  16 Input    6 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 5     
+	  16 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 6     
+	   6 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port PC[31] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[30] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[29] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[28] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[27] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[26] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[25] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[24] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[23] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[22] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[21] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[20] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[19] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[18] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[17] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PC[16] in module decoder is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[32]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[31]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[30]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[29]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[28]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[27]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[26]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[25]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[24]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[23]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[22]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[21]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[20]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[19]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[18]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[17]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[16]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[15]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[14]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[13]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[12]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[11]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[10]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[9]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[8]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[7]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[6]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[5]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[4]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[3]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[2]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[1]) is unused and will be removed from module basys3.
+WARNING: [Synth 8-3332] Sequential element (dut/arm/dp/alu/sum_reg[0]) is unused and will be removed from module basys3.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4419 ; free virtual = 11398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4419 ; free virtual = 11399
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4419 ; free virtual = 11399
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4418 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |     4|
+|3     |LUT1   |    28|
+|4     |LUT3   |     3|
+|5     |LUT5   |    21|
+|6     |FDCE   |    41|
+|7     |IBUF   |     3|
+|8     |OBUF   |    28|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.465 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 51 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2510.465 ; gain = 542.500 ; free physical = 4417 ; free virtual = 11397
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2510.473 ; gain = 750.250 ; free physical = 4417 ; free virtual = 11397
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2510.473 ; gain = 0.000 ; free physical = 4713 ; free virtual = 11693
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2622.492 ; gain = 0.000 ; free physical = 4714 ; free virtual = 11693
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: e86c8daf
+INFO: [Common 17-83] Releasing license: Synthesis
+89 Infos, 125 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 2622.492 ; gain = 1189.316 ; free physical = 4714 ; free virtual = 11694
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2074.101; main = 1727.054; forked = 451.876
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3561.000; main = 2622.496; forked = 1050.531
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2670.504 ; gain = 0.000 ; free physical = 4714 ; free virtual = 11694
+INFO: [Common 17-1381] The checkpoint '/home/jorughen/Desktop/basys3/pipelined-arm/ProyectoFinal.runs/synth_1/basys3.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file basys3_utilization_synth.rpt -pb basys3_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 30 17:30:55 2024...

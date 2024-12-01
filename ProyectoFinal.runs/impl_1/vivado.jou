@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Nov 30 19:45:40 2024
+# Process ID: 79543
+# Current directory: /home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/impl_1
+# Command line: vivado -log basys3.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source basys3.tcl -notrace
+# Log file: /home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/impl_1/basys3.vdi
+# Journal file: /home/melanie/Desktop/pipelined-arm/ProyectoFinal.runs/impl_1/vivado.jou
+# Running On        :melanie-OMEN-Laptop-15-ek0xxx
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 22.04.5 LTS
+# Processor Detail  :Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+# CPU Frequency     :3400.765 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :12300 MB
+# Swap memory       :2147 MB
+# Total Virtual     :14447 MB
+# Available Virtual :9593 MB
+#-----------------------------------------------------------
+source basys3.tcl -notrace

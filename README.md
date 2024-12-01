@@ -1,1 +1,1 @@
-# pipelined-basys3
+# pipelined-arm
